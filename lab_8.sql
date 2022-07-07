@@ -95,51 +95,6 @@ HAVING COUNT(Distinct R1.rental_id) > 3
 
 
 
-
-
-
-
-
-
-
-SELECT R1.customer_id as "1stCUST", R2.customer_id as '2ndCUST',F.title as Movie, count(I.film_id)
-FROM rental R1
-JOIN rental R2
-ON (R1.customer_id <> R2.customer_id) AND (R1.inventory_id = R2.inventory_id) 
-JOIN inventory I 
-ON I.inventory_id = R2.inventory_id
-JOIN film F
-ON F.film_id = I.film_id 
-HAVING count(I.film_id) > 3
-ORDER BY I.film_id , R1.customer_id, F.title, R2.customer_id
-;
-
-
-
-
-SELECT R1.customer_id as "1stCUST", R2.customer_id as '2ndCUST',F.title as Movie, count(I.film_id)
-
-
-FROM rental R1
-JOIN rental R2
-ON (R1.customer_id <> R2.customer_id) AND (R1.inventory_id = R2.inventory_id) 
-JOIN inventory I 
-ON I.inventory_id = R2.inventory_id
-JOIN film F
-ON F.film_id = I.film_id 
-HAVING count(I.film_id) > 3
-ORDER BY I.film_id , R1.customer_id, F.title, R2.customer_id
-;
-
-
-
-
-
-
-
-
-
-
 -- 9.For each film, list actor that has acted in more films.
 
 SELECT A1.first_name, A1.last_name, F3.title
